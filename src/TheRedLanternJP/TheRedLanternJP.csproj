@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <LangVersion>9.0</LangVersion>
+    <AssemblyName>TheRedLanternJP</AssemblyName>
+    <RootNamespace>TheRedLanternJP</RootNamespace>
+    <Version>1.0.0</Version>
+    <Product>The Red Lantern 日本語化パッチ（非公式）</Product>
+    <Description>Steam版 The Red Lantern の非公式日本語化パッチツール</Description>
+    <Company>歌うＬＩＮＥ彼氏</Company>
+    <Copyright>Copyright (c) 2026 歌うＬＩＮＥ彼氏</Copyright>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <Deterministic>true</Deterministic>
+    <!-- git のコミットIDを製品バージョンに書き込まない（どこでビルドしても同じ exe になるように） -->
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- .NET Framework 4.8 の参照アセンブリ（開発者パックが無い環境でもビルドできるようにする） -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="TheRedLanternJP.Tests" />
+  </ItemGroup>
+
+</Project>
